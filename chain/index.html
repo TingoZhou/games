@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>连锁反应</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="full-screen" content="yes">
+    <meta name="viewport" content="initial-scale=0.59, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta id="screenOri" name="screen-orientation" content="landscape"/>
+    
+    <link rel="stylesheet" href="./css/min.css">
+
+    <script type="text/javascript" src="./min.js"></script>
+    
+    <script type="text/javascript">
+        if(Browser.isMobile){
+        	document.addEvent('touchmove', function(event){
+        		event.preventDefault();
+        	});
+        }
+    </script>
+</head>
+
+<body>
+	<div id="container">
+		<canvas id="ballField"></canvas>
+		<div id="ballsExpanded"></div>
+        <div id="totalScore"></div>
+        <div id="levelScore"></div>
+        <div id="levelNumber"></div>
+		<div id="notifierBox">
+			<div id="notifierTitle">连锁反应</div>
+			<div id="notifierButton">开始游戏</div>
+		</div>
+	</div>
+</body>
+
+</html>

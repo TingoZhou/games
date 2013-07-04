@@ -1,0 +1,103 @@
+<!DOCTYPE html> 
+<html lang="en" manifest="./cache.manifest"> 
+	
+    <head> 
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<meta name="description" content="" /> 
+		<meta name="keywords" content="" /> 
+		<meta name="author" content="Google, inc." /> 
+	    <meta name="apple-mobile-web-app-capable" content="yes" />
+	    <meta name="full-screen" content="yes">
+		<meta name="viewport" content="width=500px, user-scalable=no">
+	    <meta id="screenOri" name="screen-orientation" content="portrait"/>
+	    
+	    <!-- Adds Chrome Frame supprot for IE -->
+	    <meta http-equiv="X-UA-Compatible" content="chrome=1" /> 
+	    
+        <title>Sketchout</title>
+		
+		<link type="text/css" href="css/reset.css" rel="stylesheet" media="screen" /> 
+		<link type="text/css" href="css/main.css" rel="stylesheet" media="screen" /> 
+		
+		<script type="text/javascript">
+		
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-19880957-1']);
+		  _gaq.push(['_setDomainName', '.play-chrome.com']);
+		  _gaq.push(['_trackPageview']);
+		
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = "./ga.js";
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+		
+		</script>
+    </head> 
+    <body>
+    	
+    	<!-- Wraps all game elements including UI panels and the canvas the game is rendered on -->
+    	<div id="game">
+	    	
+	    	<div id="background"></div>
+			<div id="boss"></div>
+			<div id="player"></div>
+			
+			<!-- The canvas element that the game is rendered on -->
+			<canvas id="world"></canvas>
+			
+			<div id="preloader">Loading</div>
+			
+			<div id="ui">
+				
+				<div class="panels">
+					<div id="level-indicator"><span>Level</span></div>
+					<div id="instructions"></div>
+					<div id="logo"></div>
+					
+					<a id="start-button" href="#"></a>
+
+					<div id="score-ongoing">
+						<span class="value"></span>
+					</div>
+					
+					<div id="score-outcome">
+						<h4>Your Score</h4>
+						<span class="value"></span>
+					</div>
+					
+					<div id="high-score">
+						<h4>High Score</h4>
+						<span class="value"></span>
+					</div>
+					
+					<div id="level-selector">
+						<ul id="level-selector-list">
+							
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+			<div id="cursor"></div>
+		</div>
+		
+		<script type="text/javascript" src="./jquery.min.js"></script> 
+		<script type="text/javascript" src="js/swfobject.js"></script> 
+		<script type="text/javascript" src="js/tween.js"></script>
+		<script type="text/javascript" src="js/util.js"></script> 
+		<script type="text/javascript" src="js/sound.js"></script> 
+		<script type="text/javascript" src="js/game.js"></script> 
+		
+		<script type="text/javascript">
+			// GameSound.setLoadedCallback(GameWorld.soundLoaded);
+			// GameSound.initialize();
+			GameWorld.preload();
+		</script>
+		
+		<!-- TODO: Add GA tracking code -->
+		
+    </body> 
+</html>
+
+

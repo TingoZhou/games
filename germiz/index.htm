@@ -1,0 +1,356 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="full-screen" content="yes">
+    <meta name="screen-orientation" content="landscape"/>
+    <!--<meta name="viewport" content="user-scalable=0,initial-scale=0.5,minimum-scale=0.5,maximum-scale=0.5,width=device-width,height=device-height;">-->
+    <!--<meta name="viewport" content="user-scalable=0, width=device-width, target-densitydpi=device-dpi, initial-scale=1;">-->
+    <meta name="viewport" content="initial-scale=0.5, user-scalable=no">
+    
+    <title>Germiz game by Ezelia</title>
+
+    <link rel="stylesheet" href="./css/min.css" type="text/css" media="all">
+
+    <script src="./js/min.js"></script>
+
+    <style>
+    * {
+        user-select: none;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+    }
+    canvas {
+              image-rendering: optimizeSpeed;
+              -webkit-interpolation-mode: nearest-neighbor;
+              -webkit-tap-highlight-color:rgba(0,0,0,0);
+              margin: 0px;
+              padding: 0px;
+              border: 0px;
+    }
+    </style>
+</head>
+
+<body data-twttr-rendered="true" screen_capture_injected="true">
+    <div id="wrapper">
+        <div id="world">
+            <div id="screen" style="display: block;">
+            <div id="intro2-screen">
+                <img src="./img/germiz-logo.png" id="germiz-logo">
+                <div id="intro2-screen-movie"></div>
+                <div class="controls">
+                    <a href="javascript:void(0);" id="startBtn" class="nextLvl" rel="mainScreen"><span>Start</span></a>
+                    <!--<input type="button" class="nextLvl" rel="mainScreen" value="Play" />-->
+                </div>
+            </div>
+        </div>
+            <canvas class="cnv" id="bgcanvas" width="800" height="530"></canvas>
+            <canvas class="cnv" id="canvas" width="800" height="530"></canvas>
+        </div>
+        <div id="subPanel">
+            <div id="maincontrols" class="maincontrols" style="display: block;top:-70px;">
+                <ul>
+                    <!--<li><a id="sound" target="_blank"><span>Sound</span></a></li>-->
+                    <li><a id="main" target="_blank" style="display: none;"><span>Main</span></a></li>
+                </ul>
+            </div>
+
+            <div id="lvlcontrols" class="maincontrols" style="display: none;">
+                <ul>
+                    <li style="position: relative; top: -94px;"><a id="reset" target="_blank"><span>Reset</span></a></li>
+
+                    <!--<li><a id="levels" target="_blank"><span>levels</span></a></li>-->
+                    <li style="width: 170px; float: right" id="movescontainer">步数 : <span id="moves">0</span></li>
+                    <li style="width: 200px; float: right" id="timercontainer">耗时 : <span id="timer"></span></li>
+                    <li style="width: 120px; float: right" id="lvlcontainer">关卡 <span id="lvlcontainer-id"></span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="gamescreens">
+        <ul>
+            <li id="lvl1intro">
+                <div class="gamedesc" style="background:url(img/affiche-virus2.png) no-repeat;color:#000;font-weight:bold;text-shadow:-1px -1px 0 #fff,  1px -1px 0 #fff,-1px 1px 0 #fff,1px 1px 0 #fff;">
+                <!--
+                <h1>Lesson one : Duplication</h1>
+                <p><img width="60px" src="img/virus.png" align="middle" /> <-- This is you ... a parasite micro-organism<br/>
+                <p><img width="60px" src="img/globul2.png" align="middle" /> <-- This is an antibody, it'll try to eliminate you</p>
+                <p style="font-size:25px">Your only chance to survive is to <b>duplicate</b></p>
+                -->
+                <a href="javascript:void(0);" class="nextLvl" rel="lvl1" style="top:30px;font-size:55px;font-family:楷体">点击开始游戏</a>
+    
+                </div>
+            </li>
+            <li id="lvl2intro">
+                <div class="gamedesc">
+                    <h1>教程二 : 感染</h1>
+                    <p>
+                        <img width="60px" src="./img/cell.png" align="middle">
+                        &lt;-- 这些是细胞, 它们不具有攻击性, <b>感染</b>它们达到快速传播的目的 :) </p>
+                    <p>小心, 抗体就在附近 !</p>
+                    <a href="javascript:void(0);" class="nextLvl" rel="lvl2">开始</a>
+                </div>
+            </li>
+
+            <li id="lvl3intro">
+                <div class="gamedesc">
+                    <h1>快速繁殖</h1>
+                    <p>
+                        <img width="60px" src="./img/globul.png" align="middle">
+                        &lt;-- 这是抗体, 它会尝试消灭你</p>
+                    <p>你可以通过一次感染多个细胞从而<b>快速繁殖</b>你的细胞</p>
+                    <a href="javascript:void(0);" class="nextLvl" rel="lvl3">开始</a>
+                </div>
+            </li>
+
+            <li id="lvl4intro_">
+                <div class="gamedesc">
+                    <a href="javascript:void(0);" class="nextLvl" rel="">开始</a>
+                </div>
+            </li>
+
+            <li id="lvl5intro">
+                <div class="gamedesc">
+                    <h1>墙壁</h1>
+                    <p>
+                        <img width="60px" src="./img/wall.png" align="middle">
+                        &lt;-- 这些是墙壁, 你不能穿越他们或者感染他们 </p>
+
+                    <a href="javascript:void(0);" class="nextLvl" rel="lvl5">开始</a>
+                </div>
+            </li>
+            <li id="lvl7intro">
+                <div class="gamedesc" style="background: #b9b7a4;">
+                    <h1 style="margin: 0">变异</h1>
+                    <div style="height: 390px; background: url(img/illu-jump-510.png) no-repeat right 50px">
+                        <div style="float: left; width: 300px">
+                            有些细胞可以帮助你变异, 变异的细胞会被<b style="color: red">标识出来</b>去帮助你分辨它们.<br>
+                            &nbsp;<br>
+                            它可以复制他的变异基因去感染细胞和自己的同类。<br>
+                            &nbsp;<br>
+                            如果一个变异细胞在复制它的变异基因前死亡，那么变异就会消失。
+    
+                        </div>
+
+                    </div>
+                    <div style="text-align: right">
+
+
+                        <a href="javascript:void(0);" class="nextLvl" rel="lvl7">开始</a>
+                        <br>
+                        &nbsp;<br>
+                    </div>
+
+
+                </div>
+            </li>
+            <li id="lvl8intro">
+                <div class="gamedesc">
+                    <h1>你注意到了吗 ?</h1>
+                    <p>移动到你邻近的细胞会复制你的细胞。</p>
+                    <p>跳跃者细胞可以在不复制自己的情况下进行移动!</p>
+                    <a href="javascript:void(0);" class="nextLvl" rel="lvl8">开始</a>
+                </div>
+            </li>
+            <li id="lvl10intro">
+                <div class="gamedesc">
+                    <h1>生命是宝贵的 !</h1>
+                    <p>有些环境会影响到细胞的寿命，存活时间会慢慢减少直到死亡。</p>
+                    <p>
+                        在这样的环境下，你的细胞会有两个指数 : 
+
+                        </p><div>
+                            <div style="float: left; width: 250px; color: #fff; font-weight: 700">这个是当前的生命值，如果在一回合内细胞没有移动或者受到感染，生命值就会减一</div>
+                            <div style="float: left; width: 200px">
+                                <img src="./img/illu-life.png" width="200px"></div>
+                            <div style="float: left; width: 250px; color: #ff0; font-weight: 700">这是最大的生命值，当细胞移动或者受感染的时候，细胞的生命值会恢复到这个数值</div>
+                        </div>
+                        <div style="clear: both">&nbsp;</div>
+                        生命值会通过DNA继承，如果你感染自己的同类时它的生命值低于你的，你的生命值会覆盖你同类的生命值。
+                    <p></p>
+                    <a href="javascript:void(0);" class="nextLvl" rel="lvl10">开始</a>
+                </div>
+            </li>
+            <li id="lvl15intro">
+                <div class="gamedesc">
+                    <h1>干细胞</h1>
+                    <p style="font-size: 30px; color: #0a0; font-weight: 700">一棵树的力量在于它的跟，而不是它的分枝。</p>
+                    <a href="javascript:void(0);" class="nextLvl" rel="lvl15">开始</a>
+                </div>
+            </li>
+            <li id="lvl16intro">
+                <div class="gamedesc">
+                    <h1>新世界</h1>
+                    <p style="font-size: 30px; color: #0a0; font-weight: 700"></p>
+                    <a href="javascript:void(0);" class="nextLvl" rel="lvl16">开始</a>
+                </div>
+            </li>
+
+            <li id="lvl20intro">
+                <div class="gamedesc">
+                    <h1></h1>
+                    <p style="font-size: 30px; color: #0a0; font-weight: 700">保卫入口</p>
+                    <a href="javascript:void(0);" class="nextLvl" rel="lvl20">开始</a>
+                </div>
+            </li>
+            <li id="lvl21intro">
+                <div class="gamedesc">
+                    <h1>Prison break 2 ;)</h1>
+                    <p style="font-size: 30px; color: #0a0; font-weight: 700"></p>
+                    <a href="javascript:void(0);" class="nextLvl" rel="lvl21">开始</a>
+                </div>
+            </li>
+            
+            <li id="lvl22intro">
+                <div class="gamedesc">
+                    <h1>变异 ?!</h1>
+                    <p style="font-size: 30px; color: #0a0; font-weight: 700">等一下 ! 它们也可以变异 !</p>
+                    <a href="javascript:void(0);" class="nextLvl" rel="lvl22">开始</a>
+                </div>
+            </li>
+
+            <li id="lvl23intro">
+                <div class="gamedesc">
+                    <h1>Lil的老大</h1>
+                    <p style="font-size: 30px; color: #0a0; font-weight: 700">有些细胞获得了抗体!</p>
+                    <a href="javascript:void(0);" class="nextLvl" rel="lvl23">开始</a>
+                </div>
+            </li>
+            <li id="lvl24intro">
+                <div class="gamedesc">
+                    <h1>脆弱的微生物</h1>
+                    <p style="font-size: 30px; color: #0a0; font-weight: 700">为了更强大而变异</p>
+                    <a href="javascript:void(0);" class="nextLvl" rel="lvl24">开始</a>
+                </div>
+            </li>
+            <li id="lvl25intro">
+                <div class="gamedesc">
+                    <h1>炸弹人</h1>
+                    <p style="font-size: 30px; color: #0a0; font-weight: 700"></p>
+                    <a href="javascript:void(0);" class="nextLvl" rel="lvl25">开始</a>
+                </div>
+            </li>      
+            <li id="lvl26intro">
+                <div class="gamedesc">
+                    <h1>炸弹人 VS 跳跃者 </h1>
+                    <p style="font-size: 30px; color: #0a0; font-weight: 700"></p>
+                    <a href="javascript:void(0);" class="nextLvl" rel="lvl26">开始</a>
+                </div>
+            </li>   
+            
+            <li id="lvl27intro">
+                <div class="gamedesc">
+                    <h1>跳跃者</h1>
+                    <p style="font-size: 30px; color: #0a0; font-weight: 700">跳跃者是很难被打败的，不要让它们获得这种变异 !</p>
+                    <a href="javascript:void(0);" class="nextLvl" rel="lvl27">开始</a>
+                </div>
+            </li>        
+            <li id="lvl28intro">
+                <div class="gamedesc">
+                    <h1></h1>
+                    <p style="font-size: 30px; color: #0a0; font-weight: 700">两面夹击</p>
+                    <a href="javascript:void(0);" class="nextLvl" rel="lvl28">开始</a>
+                </div>
+            </li>                                    
+            
+            <li id="lvl29intro">
+                <div class="gamedesc">
+                    <h1>到处都是变异</h1>
+                    <p style="font-size: 30px; color: #0a0; font-weight: 700">独占变异，否则你会死掉。</p>
+                    <p style="font-size: 30px; color: #0a0; font-weight: 700"></p>
+                    <a href="javascript:void(0);" class="nextLvl" rel="lvl29">开始</a>
+                </div>
+            </li>     
+            
+            <li id="lvl30intro">
+                <div class="gamedesc">
+                    <h1>干细胞 !!</h1>
+                    <p style="font-size: 30px; color: #0a0; font-weight: 700"></p>
+                    <p style="font-size: 30px; color: #0a0; font-weight: 700"></p>
+                    <a href="javascript:void(0);" class="nextLvl" rel="lvl30">开始</a>
+                </div>
+            </li>       
+            
+            <li id="lvl31intro">
+                <div class="gamedesc">
+                    <h1>感谢你玩细胞分裂战 :)</h1>
+                    <p style="font-size: 30px; color: #0a0; font-weight: 700">恭喜你！你已经完成了第30关！</p>
+                    <p style="font-size: 30px; color: #0a0; font-weight: 700">新的关卡正在筹备当中，届时会有新的变异和新的细胞，很快就会跟大家见面了。</p>
+                    <a href="javascript:void(0);" class="nextLvl" rel="" style="display:none"></a>
+                </div>
+            </li>                                                    
+        </ul>
+
+        <div id="intro">
+            <div id="intro-screen">
+                <div id="ez-loader">
+                    <span style="width: 100%;border-radius: 15px;" >&nbsp;</span>
+                    <img src="./img/uc-logo.png" style="margin-left:50px;margin-top:0px;">
+                </div>
+                <a href="http://www.uc.cn/">http://www.uc.cn/</a>
+            </div>
+        </div>
+        <div id="intro2">
+            <div id="intro2-screen">
+                <img src="./img/germiz-logo.png" id="germiz-logo">
+                <div id="intro2-screen-movie"></div>
+                <div class="controls">
+                    <a href="javascript:void(0);" id="startBtn" class="nextLvl" rel="mainScreen"><span>Start</span></a>
+                    <!--<input type="button" class="nextLvl" rel="mainScreen" value="Play" />-->
+                </div>
+            </div>
+        </div>
+        <div id="mainScreen">
+            <ul class="slider">
+                <li>
+                    <div style="width: 800px; height: 530px" class="lvlpage lvlpage3">
+                        <div id="world3" class="world"></div>
+                    </div>
+                </li>
+                <li>
+                    <div style="width: 800px; height: 530px" class="lvlpage lvlpage2">
+                        <div id="world2" class="world"></div>
+                    </div>
+                </li>
+                <li>
+                    <div style="width: 800px; height: 530px" class="lvlpage lvlpage1">
+                        <div id="world1" class="world">
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+        <div id="sliderSrc"></div>
+    </div>
+
+
+    <div id="levelEndModal" class="reveal-modal">
+        <h1></h1>
+        <div>
+            <div class="movescontainer">
+            总步数 : <span id="totalmoves">0</span>
+            </div>
+
+            <div class="timecontainer">
+            耗时 : <span id="time"></span>
+            </div>
+
+
+        </div>        
+        <div class="nextLvl"></div>
+        <!--<a class="close-reveal-modal">&#215;</a>-->
+        <a class="close-reveal-modal nextLvl" rel=""><span>下一关</span></a>
+        <a class="close-reveal-modal resetLvl" rel=""><span>重来</span></a>
+    </div>
+
+    <script>
+        window.scroll(0,1);
+</script>
+
+
+</body></html>

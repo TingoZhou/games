@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- <meta name="full-screen" content="yes"> -->
+    <meta name="viewport" content="user-scalable=0,initial-scale=1.0,minimum-scale=0.5,maximum-scale=0.5;">
+    <meta id="screenOri" name="screen-orientation" content="landscape"/>
+
+    <title>HTML5 数字游戏</title>
+    <link rel="stylesheet" type="text/css" href="css/min.css" />
+</head>
+<body style="overflow:hidden;-khtml-user-select:none;-moz-user-select:none;margin:0px;padding:0px;background-color:#000">
+	<div id="results"></div>
+	<div id="timer" style="display:none">00</div>
+	<section id="content">
+        <div id="lvl" class="slideOut"></div>
+        <div id="ans" class="slideOut"></div>
+        <div id="cur" class="slideOut">Your Total: 0</div>
+        <div id="rules" class="slideOut">
+	        <img id="hideRules" src="images/close.png" />
+            <h1>游戏说明</h1>
+            <p>#1: 必须在每行选一个选项</p>
+            <p>#2: 选项必须是相邻的</p>
+            <p>#3: 当前数值必须与目标数值相同</p>
+            <p>#4: 需要在限定时间内完成</p>
+        </div>
+        <div id="getRules" class="slideOut">游戏说明</div>
+        <div id="panel">
+            <div id="how" class="game-rule"> 
+                <h1>游戏说明</h1>
+                <p>#1: 必须在每行选一个选项</p>
+                <p>#2: 选项必须是相邻的</p>
+                <p>#3: 当前数值必须与目标数值相同</p>
+                <p>#4: 需要在限定时间内完成</p>
+                
+                <a href="#" onClick="start(2)">点 击 开 始</font>
+            </div>
+        </div>
+	</section>
+	<script src="js/min.js"></script>
+
+	<script type="text/javascript">
+		try {
+		var pageTracker = _gat._getTracker("UA-91014-16");
+		pageTracker._trackPageview();
+		} catch(err) {}
+	</script>
+</body>
+</html>
+

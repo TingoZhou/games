@@ -1,0 +1,66 @@
+@font-face {
+  font-family: 'Amaranth';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Amaranth'), url(http://themes.googleusercontent.com/static/fonts/amaranth/v3/RvdVaxHTnYbJDko8dLi4zvesZW2xOQ-xsNqO47m55DA.woff) format('woff');
+}
+@font-face {
+  font-family: 'Chango';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Chango Regular'), local('Chango-Regular'), url(http://themes.googleusercontent.com/static/fonts/chango/v2/nbaquFP0ZZ_smqykJINU8Q.woff) format('woff');
+}
+@font-face {
+  font-family: 'Cherry Cream Soda';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Cherry Cream Soda'), local('CherryCreamSoda'), url(http://themes.googleusercontent.com/static/fonts/cherrycreamsoda/v3/OrD-AUnFcZeeKa6F_c0_WxqwWSV7TiEqKBI7h3gm4xc.woff) format('woff');
+}
+@font-face {
+  font-family: 'Coda';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Coda'), local('Coda-Regular'), url(http://themes.googleusercontent.com/static/fonts/coda/v7/A7A0IS2-4Ga-ZdxhMlAPjg.woff) format('woff');
+}
+@font-face {
+  font-family: 'Erica One';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Erica One'), local('EricaOne-Regular'), url(http://themes.googleusercontent.com/static/fonts/ericaone/v2/7ct8ELB1awBkUBGJHiNceD8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
+}
+@font-face {
+  font-family: 'Gloria Hallelujah';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Gloria Hallelujah'), local('GloriaHallelujah'), url(http://themes.googleusercontent.com/static/fonts/gloriahallelujah/v4/CA1k7SlXcY5kvI81M_R28Y5mSNQmgKshuii2YddNQzE.woff) format('woff');
+}
+@font-face {
+  font-family: 'Handlee';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Handlee Regular'), local('Handlee-Regular'), url(http://themes.googleusercontent.com/static/fonts/handlee/v2/6AfIXNH5pZ1Jj_pfExPOWQ.woff) format('woff');
+}
+@font-face {
+  font-family: 'Happy Monkey';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Happy Monkey'), local('HappyMonkey-Regular'), url(http://themes.googleusercontent.com/static/fonts/happymonkey/v2/c2o0ps8nkBmaOYctqBq1rXhCUOGz7vYGh680lGh-uXM.woff) format('woff');
+}
+@font-face {
+  font-family: 'Merienda One';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Merienda One'), local('MeriendaOne-Regular'), url(http://themes.googleusercontent.com/static/fonts/meriendaone/v4/bCA-uDdUx6nTO8SjzCLXvXhCUOGz7vYGh680lGh-uXM.woff) format('woff');
+}
+@font-face {
+  font-family: 'Walter Turncoat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Walter Turncoat'), local('WalterTurncoat'), url(http://themes.googleusercontent.com/static/fonts/walterturncoat/v3/sG9su5g4GXy1KP73cU3hvf-Xg5uhy57aq-Akr_1zBcg.woff) format('woff');
+}
+@font-face {
+  font-family: 'Wendy One';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Wendy One'), local('WendyOne-Regular'), url(http://themes.googleusercontent.com/static/fonts/wendyone/v1/oRf9i5HKN7RZoSnys4E2uj8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
+}

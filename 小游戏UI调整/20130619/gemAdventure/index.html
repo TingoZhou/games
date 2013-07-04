@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" manifest="manifest.appcache">
+<head>
+	<title>宝石大冒险</title>
+
+	<link rel="shortcut icon" href="images/favicon.png">
+	<meta charset="utf-8"/>
+	<meta name="description" content="" />
+	<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0" />
+	<meta property="og:image" content="images/fb-share.png"/>
+	<meta property="og:title" content="Play Gem Adventure Now"/>
+    <meta name="full-screen" content="yes">
+    <meta id="screenOri" name="screen-orientation" content="portrait" />
+
+	<!-- External Libraries -->
+	<script src="createjs/easeljs-0.5.0.min.js"></script>
+	<script src="createjs/preloadjs-0.2.0.min.js"></script>
+	<script src="createjs/soundjs-0.3.0.min.js"></script>
+	<script src="createjs/tweenjs-0.3.0.min.js"></script>
+	<script src="js/viewporter-2.0.js"></script>
+	<script src="js/hammer.js"></script>
+	<script src="js/ColorFilter.js"></script>
+	<script src="js/audio-fx.js"></script>
+
+	<!-- Double Duck Libraries-->
+	<script src="js/ddjsutils.js"></script>
+	<script src="data/LevelDB.js"></script>
+	<script src="data/GameplayDB.js"></script>
+
+	<style>
+		#stageCanvas {
+			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+			top: 0;
+			bottom: 0;
+			right: 0;
+			left: 0;
+			position: absolute;
+		}
+
+		*{
+			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+		}
+	</style>
+</head>
+
+<body style="margin: 0; padding: 0;">
+	<div id="viewporter">
+		<canvas id="stageCanvas" height="1200" width="800"></canvas>
+	</div>
+	<div id="haxe:trace" style="display:none"></div>
+
+    <script src="GemAdventure.js"></script>
+</body>
+</html>
