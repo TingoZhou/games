@@ -1,8 +1,0 @@
-AlienPuzzle
-gomoku
-jellyfame
-LaserPuzzle
-rabbit
-starDefender
-Triangle
-各类各一款
