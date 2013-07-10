@@ -1,0 +1,8 @@
+germiz-logo----germiz:细胞分裂战，beta去掉
+lvlcomplete----level complete:闯关成功
+lvlloose-------you lose:闯关失败
+start----------start:开始
+world3---------more levels:更多的关卡，coming soon：即将开放
+world-button---next:下一章，back:上一章
+
+*备注：此游戏需要放服务器运行，否则点击开始游戏会跳至游戏官网
