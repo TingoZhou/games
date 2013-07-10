@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Wave</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+	<meta name="full-screen" content="yes">
+	<meta name="screen-orientation" content="landscape"/>
+	<style>
+		body {margin: 0; padding: 0;}
+		canvas {display: block;}
+	</style>
+</head>
+<body style="background-color:black;">
+	<div id="viewporter" align="center" width="100%">
+	    <div id="game_canvas" style="position:relative; width:640px; height:360px; top:0px; text-align: center; vertical-align: middle;">
+	        <canvas id="canvas" width="640" height="360">Your browser does not support the HTML5 canvas tag.</canvas>
+	    </div>
+	    <div id="wrong_orientation" style="display: none;"  align="center">
+	        <img src="image/orientationscreen.jpg" style="max-width:90%;">
+	    </div>
+	</div>
+
+	<script type="text/javascript" src="js/min.js"></script>
+	<script  src="js/TGE-viewport.js"></script>
+	<script>
+	(new TGE.Game).Launch({
+	    gameDiv : "game_canvas",
+	    orientation : "landscape",
+	    reorientDiv : "wrong_orientation"
+	});
+	</script>
+</body>
+</html>
+
