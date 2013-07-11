@@ -1,8 +1,0 @@
-block
-bubble
-spychase
-galactians2
-jellyfame
-lazors
-rabbit
-wave
