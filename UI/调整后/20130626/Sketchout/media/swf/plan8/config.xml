@@ -1,0 +1,757 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<!-- ************* SKETCHOUT ************* -->
+	<!-- CONFIG -->
+	<config serverPath="">
+		<xmlfiles>
+		</xmlfiles>
+		<swffiles>
+			<file autoload="1">sounds.swf</file>
+		</swffiles>
+	</config>
+	<!-- GLOBAL -->
+<global>
+	<variables>
+		<item id="logErrors" val="1" />
+		<item id="logWarnings" val="1" />
+		<item id="doLog" val="0" />
+		<item id="logTarget" constant="LOG_TARGET_ARTHROPOD" />
+		<item id="logNotifications" val="1"/>
+		<item id="logButtonNotifications" val="1"/>
+		<item id="logTCPPort" val="5637" />
+		<item id="logHost" val="127.0.0.1" />
+		<item id="FPVersion" val="9" />
+		<item id="noCache" val="0" />
+		
+		<item id="parameterSWFPath" val="1" />
+		
+	</variables>
+</global>
+	<!-- BUS -->
+<busData>
+	<master volume="0.8" pan="0" />
+	<bus name="main" volume="0.8" pan="0" />
+		<bus name="music" volume="0.8" pan="0" parent="main" />
+			<bus name="harm" volume="0" pan="0" parent="music" />
+		<bus name="amb" volume="0.8" pan="0" parent="main" />
+			<bus name="amb_1" volume="0.4" pan="0" parent="main" />
+		<bus name="fx" volume="0.8" pan="0" parent="main" />
+			<bus name="tick" volume="1" pan="1" parent="fx" />
+			<bus name="line" volume="0.7" pan="1" parent="fx" />
+			<bus name="wallright" volume="0.8" pan="1" parent="fx" />
+			<bus name="wallleft" volume="0.8" pan="-1" parent="fx" />
+			
+			
+			
+</busData>
+	<!-- SOUND -->
+<soundData fileName="sounds.xml">
+
+  <sound>
+    <name>Silence_1</name>
+    <length>140,1</length>
+    <silence>100</silence>
+    <isSilence>1</isSilence>
+  </sound>
+  <sound>
+    <name>Silence_4</name>
+    <length>140,4</length>
+    <silence>100</silence>
+    <isSilence>1</isSilence>
+  </sound>
+  <sound>
+    <name>Kick_1.mp3</name>
+    <length>140,4</length>
+    <silence>100</silence>
+  </sound>
+  <sound>
+    <name>Harm_1_1.mp3</name>
+    <length>140,4</length>
+    <silence>100</silence>
+  </sound>
+  <sound>
+    <name>Harm_1_2.mp3</name>
+    <length>140,4</length>
+    <silence>100</silence>
+  </sound>
+  <sound>
+    <name>Bass_1_1.mp3</name>
+    <length>140,4</length>
+    <silence>100</silence>
+  </sound>
+  <sound>
+    <name>Bass_1_2.mp3</name>
+    <length>140,4</length>
+    <silence>100</silence>
+  </sound>
+  <sound>
+    <name>Space_Amb_1_2862.mp3</name>
+    <length>2862</length>
+    <silence>100</silence>
+  </sound>
+  <sound>
+    <name>Space_Trig_1.mp3</name>
+    <length>2862</length>
+    <silence>100</silence>
+  </sound>
+  <sound>
+    <name>Synth_1_1.mp3</name>
+    <length>140,4</length>
+    <silence>100</silence>
+  </sound>
+  <sound>
+    <name>Synth_1_2.mp3</name>
+    <length>140,4</length>
+    <silence>100</silence>
+  </sound>
+  <sound>
+    <name>Synth_1_3.mp3</name>
+    <length>140,4</length>
+    <silence>100</silence>
+  </sound>
+  
+  <sound>
+    <name>Explosion.mp3</name>
+    <length>500</length>
+    <silence>0</silence>
+  </sound>
+  <sound>
+    <name>Explosion_2.mp3</name>
+    <length>500</length>
+    <silence>10</silence>
+  </sound>
+  <sound>
+    <name>Explosion2_rev.mp3</name>
+    <length>50</length>
+    <silence>10</silence>
+  </sound>
+  <sound>
+    <name>LargeExplosion.mp3</name>
+    <length>50</length>
+    <silence>10</silence>
+  </sound>
+ <sound>
+    <name>Fall.mp3</name>
+    <length>1500</length>
+    <silence>10</silence>
+  </sound>
+  <sound>
+    <name>MyPlanet.mp3</name>
+    <length>500</length>
+    <silence>10</silence>
+  </sound>
+   <sound>
+    <name>Swoosh_4.mp3</name>
+    <length>500</length>
+    <silence>0</silence>
+  </sound>
+   <sound>
+    <name>Swoosh_5.mp3</name>
+    <length>500</length>
+    <silence>0</silence>
+  </sound>
+ 
+  <sound>
+    <name>Chimes_2878.mp3</name>
+    <length>2878</length>
+    <silence>100</silence>
+  </sound>
+  <sound>
+    <name>Noise.mp3</name>
+    <length>1000</length>
+    <silence>0</silence>
+  </sound>
+  <sound>
+    <name>Tick.mp3</name>
+    <length>100</length>
+    <silence>0</silence>
+  </sound>
+  <sound>
+    <name>Tick2.mp3</name>
+    <length>100</length>
+    <silence>0</silence>
+  </sound>
+  <sound>
+    <name>Tick3.mp3</name>
+    <length>100</length>
+    <silence>0</silence>
+  </sound>
+   <sound>
+    <name>LineHit_1.mp3</name>
+    <length>100</length>
+    <silence>0</silence>
+  </sound>
+  <sound>
+    <name>LineHit_2.mp3</name>
+    <length>100</length>
+    <silence>0</silence>
+  </sound>
+  <sound>
+    <name>LineHit_3.mp3</name>
+    <length>100</length>
+    <silence>0</silence>
+  </sound>
+  <sound>
+    <name>LineHit_4.mp3</name>
+    <length>100</length>
+    <silence>0</silence>
+  </sound>
+  <sound>
+    <name>Paddle_1.mp3</name>
+    <length>100</length>
+    <silence>0</silence>
+  </sound>
+  <sound>
+    <name>Paddle_2.mp3</name>
+    <length>100</length>
+    <silence>0</silence>
+  </sound>
+  <sound>
+    <name>Paddle_3.mp3</name>
+    <length>100</length>
+    <silence>0</silence>
+  </sound>
+  
+   <!-- FX SO -->
+   <soundObject>
+    <name>Tick_SO</name>
+    <mode>randomtrig</mode>
+    <volume>1</volume>
+    <pan>0</pan>
+    <parentBus>tick</parentBus>
+    <loop>0</loop>
+    <sound offset="0">Tick2.mp3</sound>
+  </soundObject>
+  <soundObject>
+    <name>Swoosh_SO</name>
+    <mode>randomtrig</mode>
+    <volume>1</volume>
+    <pan>0</pan>
+    <parentBus>fx</parentBus>
+    <loop>0</loop>
+    <sound offset="0">Swoosh_4.mp3</sound>
+    <sound offset="0">Swoosh_5.mp3</sound>
+  </soundObject>
+  <soundObject>
+    <name>Swoosh2_SO</name>
+    <mode>randomtrig</mode>
+    <volume>1</volume>
+    <pan>0</pan>
+    <parentBus>fx</parentBus>
+    <loop>0</loop>
+    <sound offset="0">Paddle_1.mp3</sound>
+    <sound offset="0">Paddle_2.mp3</sound>
+    <sound offset="0">Paddle_3.mp3</sound>
+  </soundObject>
+   <soundObject>
+    <name>Explosion2_SO</name>
+    <mode>randomtrig</mode>
+    <volume>1</volume>
+    <pan>0</pan>
+    <parentBus>fx</parentBus>
+    <loop>0</loop>
+    <sound offset="0">Explosion_2.mp3</sound>
+  </soundObject>
+  <soundObject>
+    <name>ExplosionRight_SO</name>
+    <mode>pattern</mode>
+    <volume>0.8</volume>
+    <pan>1</pan>
+    <parentBus>fx</parentBus>
+    <loop>0</loop>
+	 <retrigg>1</retrigg>
+    <sound offset="0">Explosion2_rev.mp3</sound>
+  </soundObject>
+  <soundObject>
+    <name>ExplosionLeft_SO</name>
+    <mode>pattern</mode>
+    <volume>0.8</volume>
+    <pan>-1</pan>
+    <parentBus>fx</parentBus>
+    <loop>0</loop>
+     <retrigg>1</retrigg>
+    <sound offset="0">Explosion2_rev.mp3</sound>
+  </soundObject>
+   <soundObject>
+    <name>Chimes_SO</name>
+    <mode>pattern</mode>
+    <volume>1.5</volume>
+    <pan>0</pan>
+    <parentBus>fx</parentBus>
+    <loop>1</loop>
+    <sound offset="0">Chimes_2878.mp3</sound>
+  </soundObject>
+  <soundObject>
+    <name>Explosion_SO</name>
+    <mode>randomtrig</mode>
+    <volume>1</volume>
+    <pan>0</pan>
+    <parentBus>fx</parentBus>
+    <loop>0</loop>
+    <sound offset="0">Explosion.mp3</sound>
+  </soundObject>
+  <soundObject>
+    <name>LargeExplosion_SO</name>
+    <mode>randomtrig</mode>
+    <volume>1</volume>
+    <pan>0</pan>
+    <parentBus>fx</parentBus>
+    <loop>0</loop>
+    <sound offset="0">LargeExplosion.mp3</sound>
+  </soundObject>
+ <soundObject>
+    <name>MyPlanet_SO</name>
+    <mode>randomtrig</mode>
+    <volume>1</volume>
+    <pan>0</pan>
+    <parentBus>fx</parentBus>
+    <loop>0</loop>
+    <sound offset="0">MyPlanet.mp3</sound>
+  </soundObject>
+  <soundObject>
+    <name>Fall_SO</name>
+    <mode>randomtrig</mode>
+    <volume>2</volume>
+    <pan>0</pan>
+    <parentBus>fx</parentBus>
+    <loop>0</loop>
+    <sound offset="0">Fall.mp3</sound>
+  </soundObject>
+  <soundObject>
+    <name>Noise_SO</name>
+    <mode>randomtrig</mode>
+    <volume>1</volume>
+    <pan>0</pan>
+    <parentBus>fx</parentBus>
+    <loop>0</loop>
+    <sound offset="0">Noise.mp3</sound>
+  </soundObject>
+   <soundObject>
+    <name>LineHit_SO</name>
+    <mode>randomtrig</mode>
+    <volume>1</volume>
+    <pan>0</pan>
+    <parentBus>line</parentBus>
+    <loop>0</loop>
+    <sound offset="0">LineHit_1.mp3</sound>
+    <sound offset="0">LineHit_2.mp3</sound>
+    <sound offset="0">LineHit_3.mp3</sound>
+    <sound offset="0">LineHit_4.mp3</sound>
+  </soundObject>
+  <!-- Music SO -->
+ 
+  
+  <soundObject>
+    <name>Kick_SO</name>
+    <mode>pattern</mode>
+    <volume>1</volume>
+    <pan>0</pan>
+    <parentBus>music</parentBus>
+    <loop>1</loop>
+    <sound offset="140,0">Kick_1.mp3</sound>
+    <sound offset="140,4">Kick_1.mp3</sound>
+  </soundObject>
+  
+  <soundObject>
+    <name>Harm_1_SO</name>
+    <mode>pattern</mode>
+    <volume>1</volume>
+    <pan>0</pan>
+    <parentBus>harm</parentBus>
+    <loop>1</loop>
+    <sound offset="140,0">Harm_1_1.mp3</sound>
+    <sound offset="140,4">Harm_1_2.mp3</sound>
+  </soundObject>
+  
+  <soundObject>
+    <name>Bass_1_SO</name>
+    <mode>pattern</mode>
+    <volume>1</volume>
+    <pan>0</pan>
+    <parentBus>music</parentBus>
+    <loop>1</loop>
+    <sound offset="140,0">Bass_1_1.mp3</sound>
+    <sound offset="140,4">Bass_1_1.mp3</sound>
+    <sound offset="140,8">Bass_1_1.mp3</sound>
+    <sound offset="140,12">Bass_1_1.mp3</sound>
+    <sound offset="140,16">Bass_1_1.mp3</sound>
+    <sound offset="140,20">Bass_1_1.mp3</sound>
+    <sound offset="140,24">Bass_1_2.mp3</sound>
+    <sound offset="140,28">Bass_1_2.mp3</sound>
+  </soundObject>
+  
+   <soundObject>
+    <name>Bass_2_SO</name>
+    <mode>pattern</mode>
+    <volume>1</volume>
+    <pan>0</pan>
+    <parentBus>music</parentBus>
+    <loop>1</loop>
+    <sound offset="140,0">Silence_4</sound>
+    <sound offset="140,4">Silence_4</sound>
+    <sound offset="140,8">Silence_4</sound>
+    <sound offset="140,12">Silence_4</sound>
+    <sound offset="140,16">Silence_4</sound>
+    <sound offset="140,20">Silence_4</sound>
+    <sound offset="140,24">Silence_4</sound>
+    <sound offset="140,28">Bass_1_1.mp3</sound>
+  </soundObject>
+  
+  <soundObject>
+    <name>Space_Amb_1_SO</name>
+    <mode>pattern</mode>
+    <volume>1</volume>
+    <pan>0</pan>
+    <parentBus>amb_1</parentBus>
+    <loop>1</loop>
+    <sound offset="0">Space_Amb_1_2862.mp3</sound>
+    <sound offset="2862">Space_Amb_1_2862.mp3</sound>
+  </soundObject>
+  
+  <soundObject>
+    <name>Space_Trig_1_SO</name>
+    <mode>pattern</mode>
+    <volume>1</volume>
+    <pan>0</pan>
+    <parentBus>music</parentBus>
+    <loop>1</loop>
+    <sound offset="3500">Space_Trig_1.mp3</sound>
+    <sound offset="13000">Silence_1</sound>
+  </soundObject>
+  
+   <soundObject>
+    <name>Synth_1_SO</name>
+    <mode>pattern</mode>
+    <volume>1</volume>
+    <pan>0</pan>
+    <parentBus>music</parentBus>
+    <loop>1</loop>
+    <sound offset="140,0">Silence_4</sound>
+    <sound offset="140,4">Silence_4</sound>
+    <sound offset="140,8">Silence_4</sound>
+    <sound offset="140,12">Silence_4</sound>
+    <sound offset="140,16">Silence_4</sound>
+    <sound offset="140,20">Silence_4</sound>
+    <sound offset="140,24">Synth_1_1.mp3</sound>
+    <sound offset="140,28">Synth_1_2.mp3</sound>
+    <sound offset="140,32">Synth_1_3.mp3</sound>
+    <sound offset="140,36">Synth_1_3.mp3</sound>
+  </soundObject>
+  
+  
+  
+  
+  <soundObject>
+    <name>beat_SO</name>
+    <mode>pattern</mode>
+    <volume>1</volume>
+    <pan>0</pan>
+    <parentBus>music</parentBus>
+    <loop>1</loop>
+    <sound offset="120,0">Silence_1</sound>
+    <sound offset="120,1">Silence_1</sound>
+  </soundObject>
+  
+  <!-- ARR -->
+  
+  <arrangement>
+		<name>beat_ARR</name>
+		<domain>beat</domain>
+		<retrigg>0</retrigg>
+		<soundObject>beat_SO</soundObject>
+		<beatObject>beat_SO</beatObject>
+  </arrangement>
+  
+  <arrangement>
+		<name>Level_1_ARR</name>
+		<domain>beat</domain>
+		<retrigg>0</retrigg>
+		<soundObject>Harm_1_SO</soundObject>
+		<beatObject>Harm_1_SO</beatObject>
+  </arrangement>
+  
+  <arrangement>
+		<name>Level_2_ARR</name>
+		<domain>beat</domain>
+		<retrigg>0</retrigg>
+		<soundObject>Harm_1_SO</soundObject>
+		<soundObject>Bass_1_SO</soundObject>
+  </arrangement>
+  
+  <arrangement>
+		<name>Level_3_ARR</name>
+		<domain>beat</domain>
+		<retrigg>0</retrigg>
+		<soundObject>Harm_1_SO</soundObject>
+		<soundObject>Bass_1_SO</soundObject>
+		<soundObject>Kick_SO</soundObject>
+  </arrangement>
+  
+  <arrangement>
+		<name>Level_4_ARR</name>
+		<domain>beat</domain>
+		<retrigg>0</retrigg>
+		<soundObject>Kick_SO</soundObject>
+		<soundObject>Harm_1_SO</soundObject>
+		<soundObject>Bass_1_SO</soundObject>
+		<soundObject>Synth_1_SO</soundObject>
+  </arrangement>
+
+
+</soundData>
+
+
+	<!-- EVENT -->
+	
+<eventData>	
+	<action>
+		<event>Test</event>
+		<targets>
+			<target id="PlayArrAction">
+				<arg key = "name" value = "track_2_ARR" />	
+			</target>	
+			<target id="PlayArrAction">
+				<arg key = "name" value = "beat_ARR" />	
+			</target>	
+			<target id="BeatAction">
+				<arg key = "name" value = "beat_1" />
+				<arg key = "divider" value = "2" />
+				<arg key = "arr" value = "beat_ARR" />
+				<arg key = "start" value = "1" />
+			</target>		
+		</targets>
+	</action>
+	<action>
+		<event>UnMute</event>
+		<targets>
+			<target id="BusVolumeAction">
+				<arg key = "name" value = "main" />	
+				<arg key = "vol" value = "1" />	
+				<arg key = "time" value = "800" />	
+			</target>			
+		</targets>
+	</action>
+	<action>
+		<event>Mute</event>
+		<targets>
+			<target id="BusVolumeAction">
+				<arg key = "name" value = "main" />	
+				<arg key = "vol" value = "0" />	
+				<arg key = "time" value = "800" />	
+			</target>			
+		</targets>
+	</action>
+	<action>
+		<event>StartScreen</event>
+		<targets>
+			<target id="StartSOAction">
+				<arg key = "name" value = "Space_Amb_1_SO" />	
+			</target>	
+			<target id="StartSOAction">
+				<arg key = "name" value = "Space_Trig_1_SO" />	
+			</target>
+					
+		</targets>
+	</action>
+	<action>
+		<event>Level_1</event>
+		<targets>
+			<target id="BusVolumeAction">
+				<arg key = "name" value = "fx" />
+				<arg key = "vol" value = "0.8" />
+				<arg key = "time" value = "1000" />	
+			</target>
+			<target id="StartSOAction">
+				<arg key = "name" value = "Noise_SO" />	
+			</target>
+			<target id="BusVolumeAction">
+				<arg key = "name" value = "harm" />
+				<arg key = "vol" value = "0" />
+				<arg key = "time" value = "200" />	
+			</target>
+			<target id="PlayArrAction">
+				<arg key = "name" value = "Level_1_ARR" />	
+			</target>
+			<target id="BeatAction">
+				<arg key = "arr" value = "Level_1_ARR" />
+				<arg key = "name" value = "beat" />	
+				<arg key = "divider" value = "1" />	
+				<arg key = "start" value = "1" />
+				<arg key = "beat" value = "20" id="0" />
+				<arg key = "event" value = "Harm_up" id="0" />	
+			</target>
+			
+		</targets>
+	</action>
+	<action>
+		<event>Harm_up</event>
+		<targets>
+			<target id="BusVolumeAction">
+				<arg key = "name" value = "harm" />
+				<arg key = "vol" value = "0.3" />
+				<arg key = "time" value = "15000" />	
+			</target>
+		</targets>
+	</action>
+	<action>
+		<event>Level_2</event>
+		<targets>
+			<target id="StartSOAction">
+				<arg key = "name" value = "Noise_SO" />	
+			</target>
+			<target id="BusVolumeAction">
+				<arg key = "name" value = "harm" />
+				<arg key = "vol" value = "0.8" />
+				<arg key = "time" value = "6000" />	
+			</target>
+			<target id="BusVolumeAction">
+				<arg key = "name" value = "fx" />
+				<arg key = "vol" value = "1" />
+				<arg key = "time" value = "1000" />	
+			</target>
+			<target id="PlayArrAction">
+				<arg key = "name" value = "Level_2_ARR" />	
+			</target>			
+		</targets>
+	</action>
+	<action>
+		<event>Level_3</event>
+		<targets>
+			<target id="BusVolumeAction">
+				<arg key = "name" value = "fx" />
+				<arg key = "vol" value = "1" />
+				<arg key = "time" value = "1000" />	
+			</target>
+			<target id="StartSOAction">
+				<arg key = "name" value = "Noise_SO" />	
+			</target>
+			<target id="PlayArrAction">
+				<arg key = "name" value = "Level_3_ARR" />	
+			</target>			
+		</targets>
+	</action>
+	<action>
+		<event>Level_4</event>
+		<targets>
+			<target id="BusVolumeAction">
+				<arg key = "name" value = "fx" />
+				<arg key = "vol" value = "1" />
+				<arg key = "time" value = "1000" />	
+			</target>
+			<target id="StartSOAction">
+				<arg key = "name" value = "Noise_SO" />	
+			</target>
+			<target id="PlayArrAction">
+				<arg key = "name" value = "Level_4_ARR" />	
+			</target>			
+		</targets>
+	</action>
+	<action>
+		<event>LineBounce</event>
+		<targets>
+			<target id="StartSOAction">
+				<arg key = "name" value = "LineHit_SO" />	
+			</target>			
+		</targets>
+	</action>
+	<action>
+		<event>WallLeftBounce</event>
+		<targets>
+			
+			<target id="StartSOAction">
+				<arg key = "name" value = "ExplosionLeft_SO" />	
+			</target>			
+		</targets>
+	</action>
+	<action>
+		<event>WallRightBounce</event>
+		<targets>
+			<target id="StartSOAction">
+				<arg key = "name" value = "ExplosionRight_SO" />	
+			</target>			
+		</targets>
+	</action>
+	<action>
+		<event>NewEnemy</event>
+		<targets>
+			<target id="StartSOAction">
+				<arg key = "name" value = "Swoosh_SO" />	
+			</target>			
+		</targets>
+	</action>
+	<action>
+		<event>EnemyShieldHit</event>
+		<targets>
+			<target id="StartSOAction">
+				<arg key = "name" value = "Explosion_SO" />	
+			</target>			
+		</targets>
+	</action>
+	<action>
+		<event>PaddleBounce</event>
+		<targets>
+			<target id="StartSOAction">
+				<arg key = "name" value = "Swoosh2_SO" />	
+			</target>			
+		</targets>
+	</action>
+	<action>
+		<event>StartDraw</event>
+		<targets>
+			<target id="StartSOAction">
+				<arg key = "name" value = "Chimes_SO" />	
+			</target>			
+		</targets>
+	</action>
+	<action>
+		<event>StopDraw</event>
+		<targets>
+			<target id="StopSOAction">
+				<arg key = "name" value = "Chimes_SO" />
+				<arg key = "hard" value = "1" />
+				<arg key = "fadeTime" value = "600" />
+			</target>			
+		</targets>
+	</action>
+	<!--
+<action>
+		<event>MyPlanetHit</event>
+		<targets>
+			<target id="StartSOAction">
+				<arg key = "name" value = "MyPlanet_SO" />
+			</target>			
+		</targets>
+	</action>
+-->
+	<action>
+		<event>GameOver</event>
+		<targets>
+			<target id="StartSOAction">
+				<arg key = "name" value = "Fall_SO" />
+			</target>
+			<target id="FadeAndStopDomainAction">
+				<arg key = "name" value = "beat" />
+				<arg key = "fadeOutTime" value = "800" />
+			</target>		
+		</targets>
+	</action>
+	<action>
+		<event>EnemyPlanetHit</event>
+		<targets>
+			<target id="StartSOAction">
+				<arg key = "name" value = "LargeExplosion_SO" />
+			</target>			
+		</targets>
+	</action>
+	<action>
+		<event>RemoveLine</event>
+		<targets>
+			<target id="StartSOAction">
+				<arg key = "name" value = "Tick_SO" />
+			</target>			
+		</targets>
+	</action>
+		
+		
+</eventData>
+</root>
