@@ -1,0 +1,689 @@
+@font-face {
+    font-family: 'Gretoon';
+    src: url('../fonts/Gretoon.eot');
+    src: url('../fonts/Gretoon.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Gretoon.woff') format('woff'),
+         url('../fonts/Gretoon.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+body
+{
+padding:0px;
+margin:0px;
+background-image:url('../img/background.png');
+background-repeat:no-repeat;
+background-attachment:fixed;
+background-position:center center; 
+}
+
+h2{
+font:700 30px Gretoon;
+color:#e0e;
+
+  text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
+}
+#pageshare {position:fixed; bottom:15%; left:10px; float:left; border: 1px solid black; border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;background-color:#eff3fa;padding:0 0 2px 0;z-index:10;width:70px}
+#pageshare .sbutton {float:left;clear:both;margin:5px 5px 0 5px;}
+.fb_share_count_top {width:48px !important;}
+.fb_share_count_top, .fb_share_count_inner {-moz-border-radius:3px;-webkit-border-radius:3px;}
+.FBConnectButton_Small, .FBConnectButton_RTL_Small {width:49px !important; -moz-border-radius:3px;-webkit-border-radius:3px;}
+.FBConnectButton_Small .FBConnectButton_Text {padding:2px 2px 3px !important;-moz-border-radius:3px;-webkit-border-radius:3px;font-size:8px;}
+#top {
+}
+
+
+#head {
+	margin:0px;
+	padding:0px;
+	margin-left: auto;
+	margin-right: auto;
+	width:800px;
+	height:30px;
+	border:1px solid black;
+	border-bottom:0px;
+
+}
+#subPanel{
+	position:relative;
+	display:block;
+	margin-left: auto;
+	margin-right: auto;
+	width:800px;
+}
+#ez-loader
+{
+	width:236px;
+	height:206px;
+	border:0px solid black;
+	position:relative;
+	overflow:hidden;
+	padding:0;
+	margin:0;
+}
+#ez-loader span
+{
+	position:absolute;
+	padding:0;
+	margin:0;
+	bottom:0px;
+	left:0px;
+	background:#e00;
+	display:block;
+	text-align:center;
+	height:40px;
+	font:700 10px arial;
+}
+#ez-loader img
+{
+	position:absolute;
+	padding:0;
+	margin:0;
+	top:0px;
+	left:0px;
+	display:block;
+}
+.maincontrols
+{
+	position:relative;
+	z-index:99;
+	top:0px;
+	float:left;
+	width:198px;
+	
+}
+#maincontrols
+{
+	display:none;
+}
+#lvlcontrols
+{
+	position:relative;
+	z-index:99;
+	top:24px;
+	float:right;
+	display:none;
+	width:530px;
+	
+}
+.maincontrols ul
+{
+	list-style:none;
+	padding:0;
+	margin:0;
+}
+.maincontrols ul li
+{
+	list-style:none;
+	padding:0;
+	margin:0;
+	display:block;
+	width:74px;
+	height:74px;
+	margin-left:10px;
+	float:left;
+}
+.maincontrols ul li a
+{
+	cursor:url('../img/pointer.cur'), pointer;
+	display:block;
+	width:74px;
+	height:74px;
+	background:url('../img/buttons.png') no-repeat;
+	
+}
+.maincontrols ul li a:hover
+{
+	background-position:0px -74px;
+}
+.maincontrols ul li a span
+{
+	display:none;
+}
+
+.maincontrols ul li a#reset
+{
+	background-position:-74px 0px;
+}
+.maincontrols ul li a#reset:hover
+{
+	background-position:-74px -74px;
+}
+.maincontrols ul li a#main
+{
+	background-position:-222px 0px;
+}
+.maincontrols ul li a#main:hover
+{
+	background-position:-222px -74px;
+}
+.maincontrols ul li a#levels
+{
+	background-position:-148px 0px;
+}
+.maincontrols ul li a#levels:hover
+{
+	background-position:-148px -74px;
+}
+.maincontrols ul li a.muted
+{
+	background-position:0px -148px;
+}
+.maincontrols ul li a.muted:hover
+{
+	background-position:0px -148px;
+}
+
+a#tag
+{
+	float:right;
+	z-index:99;
+	position:absolute;
+	right:-2px;
+	border:0px;
+	
+}
+a#tag img
+{
+	border:0px;
+}
+#top
+{
+	height:50px;
+	width:800px;
+}
+#wrapper
+{
+	position:relative;
+	z-index:0;
+	width:850px;
+	height:570px;
+	background:url('../img/cadre.png') no-repeat;
+	display:block;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top:20px;
+	padding-left:5px;
+}
+#world {
+	background:#fff;
+	position:relative;
+	display:block;
+	margin-left: auto;
+	margin-right: auto;
+	width:800px;
+	height:530px;
+	/*background:url(img/level2.png) no-repeat;*/
+	border:1px solid #bfb796;
+	z-index:0;
+	cursor:url('../img/left_ptr.cur'), default;
+	overflow:hidden;
+}
+#world a
+{
+	cursor:url('../img/pointer.cur'), pointer;
+}
+#bgcanvas
+{
+	position:absolute;
+	top:0px;
+	left:0px;
+  width: 800px;
+  height:530px;
+  
+  z-index:1;
+ 
+ display:none;
+}
+#canvas {
+	position:absolute;
+	top:0px;
+	left:0px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 800px;
+  
+  
+  z-index:2;
+  /*border-right:5px solid #3b3;*/
+  display:none;
+  cursor:url('../img/pointer.cur'), pointer;
+}
+#screen {
+	
+	width:800px;
+	height:530px;
+	position:relative;
+	z-index:3;
+}
+#gamescreens
+{
+	display:none;
+}
+
+a.lvlSelect
+{
+	display:block;
+	float:left;
+	width : 85px;
+	height : 85px;
+	border:0px solid black;
+	margin-left:30px;
+	margin-bottom:30px;
+	background:url(../img/level-button.png) no-repeat;
+	text-decoration:none;
+	text-align:center;
+	background-position:-170px;
+	cursor:url('../img/pointer.cur'), pointer;
+}
+#world a.none
+{
+	cursor:url('../img/left_ptr.cur'), default;
+}
+a.done
+{
+	background-position:-85px;
+}
+a.open
+{
+	background-position:0px;
+}
+a.lvlSelect span
+{
+ display:none;
+}
+a.done span, a.open span
+{
+	display:block;
+	font:700 30px Gretoon;
+	color:#eee;
+	margin-top:10px;
+	text-decoration:none;
+  text-shadow:
+   -1px -1px 0 #5da301,  
+    1px -1px 0 #5da301,
+    -1px 1px 0 #5da301,
+     1px 1px 0 #5da301;
+}
+
+a.lvlSelect:hover span
+{
+	color:#fff;
+}
+a.done:hover 
+{
+	background-position:-340px;
+}
+a.open:hover 
+{
+	background-position:-255px;
+}
+
+
+
+#mainScreen ul li
+{
+}
+.bx-controls-direction
+{
+	display:block;
+	width:800px;
+	height:530px;
+	top:0px;
+	left:0px;
+}
+a.bx-prev
+{
+	position:absolute;
+	right:10px;
+	top:10px;
+	display:block;
+	background:url(../img/world-button.png) no-repeat;
+	height:140px;
+	width:33px;
+	background-position:0px;
+	text-decoration:none;
+}
+a.bx-prev:hover
+{
+	background-position:-66px;
+}
+a.bx-next
+{
+	position:absolute;
+	right:10px;
+	bottom:10px;
+	display:block;
+	background:url(../img/world-button.png) no-repeat;
+	height:140px;
+	width:33px;
+	background-position:-33px;
+	text-decoration:none;
+}
+a.bx-next:hover
+{
+	background-position:-99px;
+}
+.bx-viewport
+{
+display:block;
+}
+
+
+
+
+#levelEndModal
+{
+z-index:999;
+display:none;
+height:300px;
+background:url('../img/lvlcomplete.png') no-repeat;
+}
+#levelEndModal .timecontainer
+{
+	font:700 25px Gretoon;
+	color:#1199EE;
+  text-shadow:
+   -2px -2px 0 #000,  
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+     2px 2px 0 #000;
+	 display:block;
+	 text-align:center;	 
+	 
+}
+#levelEndModal .movescontainer
+{
+	font:700 30px Gretoon;
+	color:#ee3311;
+  text-shadow:
+   -2px -2px 0 #000,  
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+     2px 2px 0 #000;
+	 display:block;
+	 text-align:center;
+	 margin-top:130px;
+	 
+}
+#levelEndModal .nextLvl
+{
+	position:absolute;
+	font:700 25px Gretoon;
+	color:#ee3311;
+	top:230px;
+	width:100px;
+	right:30px;
+}
+#levelEndModal .nextLvl:hover
+{
+color:#ffee11;
+  text-shadow:
+   -2px -2px 0 #000,  
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+     2px 2px 0 #000;
+}
+#levelEndModal .resetLvl
+{
+	position:absolute;
+	font:700 25px Gretoon;
+	color:#ee3311;
+	top:220px;
+	left:40px;
+	width:100px;
+}
+#levelEndModal .resetLvl:hover
+{
+color:#ffee11;
+  text-shadow:
+   -2px -2px 0 #000,  
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+     2px 2px 0 #000;
+}
+
+
+
+#intro-screen
+{
+	width:236px;
+	height:206px;
+	margin:auto;
+	padding-top:50px;
+}
+#intro-screen a
+{
+	display:block;
+ text-decoration:none;
+ font:27px Happy Monkey;
+ margin-top:20px;
+ color: #d33;
+ //Coda|Erica+One|Chango|Cherry+Cream+Soda|Merienda+One|Gloria+Hallelujah|Amaranth|Walter+Turncoat|Happy+Monkey
+}
+#intro2-screen
+{
+	background:url(../img/background800x480.jpg) no-repeat;
+	width:800px;
+	height:530px;
+	position:relative;
+}
+#intro2-screen img#germiz-logo
+{
+	display:block;
+	width:450px;
+	margin:auto;
+	padding-top:20px;
+}
+#intro2-screen-movie
+{
+	background:url(../img/background800x480.jpg) no-repeat;
+	width:800px;
+	height:530px;
+	z-index:1;
+	position:absolute;
+	top:0px;
+	left:0px;
+	display:none;
+}
+
+.lvlpage 
+{
+	position:relative;
+	top:-15px;
+	left:-40px;
+}
+.lvlpage  div
+{
+	width:660px;
+	margin:auto;
+	padding-top:90px;
+}
+.lvlpage1
+{
+	background:url(../img/world1.jpg) no-repeat;
+}
+.lvlpage2
+{
+	background:url(../img/world2.jpg) no-repeat;
+}
+.lvlpage3
+{
+	background:url(../img/world3.jpg) no-repeat;
+}
+.controls
+{
+	width:800px;
+	border:0px solid black;
+	z-index:99;
+
+}
+a#startBtn
+{
+	display:block;
+	width:249px;
+	height:122px;
+	background:url(../img/start.png) no-repeat;
+	margin:auto;
+}
+a#startBtn:hover
+{
+	background-position:-249px;
+}
+a#startBtn span
+{
+	display:none;
+}
+
+.gamedesc
+{
+	font:500 20px Handlee;
+	padding:1px 20px;
+	position:relative;
+	height:550px;
+	background:#b9b7a4;
+}
+.gamedesc h2
+{
+	text-align:center;
+}
+
+.gamedesc h1
+{
+	text-align:center;
+}
+.gamedesc a.nextLvl
+{
+border:0;
+background:transparent;
+font:700 30px Gretoon;
+color:#ee3311;
+text-decoration:none;
+text-align:right;
+display:block;
+width:750px;
+position:absolute;
+top:460px;
+right:40px;
+}
+.gamedesc a.nextLvl:hover
+{
+color:#ffee11;
+  text-shadow:
+   -2px -2px 0 #000,  
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+     2px 2px 0 #000;
+}
+#timercontainer
+{
+/*Handlee|Wendy+One|Coda|Erica+One|Chango|Cherry+Cream+Soda|Merienda+One|Gloria+Hallelujah|Amaranth|Walter+Turncoat|Happy+Monkey*/
+
+	font:500 16px Gretoon;
+	height:74px;
+	color:brown;
+  text-shadow:
+   -2px -2px 0 #fff,  
+    2px -2px 0 #fff,
+    -2px 2px 0 #fff,
+     2px 2px 0 #fff;
+  top:-50px;
+  position:relative;
+
+}
+#lvlcontainer
+{
+	font:500 18px Gretoon;
+	height:74px;
+    position:absolute;
+    top:-574px;
+    left:-290px;
+  text-shadow:
+   -2px -2px 0 #fff,  
+    2px -2px 0 #fff,
+    -2px 2px 0 #fff,
+     2px 2px 0 #fff;
+	 color:#b33;
+     height:10px;
+
+}
+#movescontainer
+{
+	font:500 18px Gretoon;
+	height:74px;
+    
+  text-shadow:
+   -2px -2px 0 #fff,  
+    2px -2px 0 #fff,
+    -2px 2px 0 #fff,
+     2px 2px 0 #fff;
+	 color:#b33;
+  top:-50px;
+  position:relative;
+}
+.alertify-dialog {
+
+	background:url(../img/bg-mutation-info.png) no-repeat;
+	padding:1px;
+	width:550px;
+	height:200px;
+}
+.alertify-dialog .mutation-desc
+{
+width:550px;
+height:160px;
+position:relative;
+}
+
+.alertify-dialog .mutation-desc .life1
+{
+position:absolute;
+font:700 50px Wendy One;
+  text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
+	 color:#ff0;
+	bottom:40px;
+	left:140px;
+}
+
+.alertify-dialog .mutation-desc .life2
+{
+position:absolute;
+font:700 50px Wendy One;
+  text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
+	color:#ff0;
+	bottom:40px;
+	right:30px;
+}
+
+.alertify-dialog .mutation-desc .lifearrow
+{
+position:absolute;
+font:700 30px Wendy One;
+  text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
+	 color:#f00;
+	bottom:60px;
+	right:260px;
+}
+
+
+.alertify-buttons
+{
+	
+}
