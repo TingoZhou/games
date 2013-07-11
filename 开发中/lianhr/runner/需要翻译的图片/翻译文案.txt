@@ -1,0 +1,37 @@
+achievement_popup----achievement earned:获取成就
+
+back_button----------back：返回
+
+boost----------------boost：加速
+
+checkpoint-----------checkpoint：检查点
+
+click----------------鼠标图标换成手指点击屏幕图标，click：点击屏幕
+
+click2---------------鼠标图标换成手指点击屏幕图标，click...click：点击屏幕2次
+
+continue-------------continue:继续
+
+mainmenu_button------main menu：主菜单
+
+menu_button----------achievements：成就
+
+notips---------------disable tips：取消提示
+
+play_button----------play：开始
+
+reorient_message-----rotate your device：旋转你的设备
+
+restart_button-------restart：重来
+
+resume_button--------resume：继续
+
+start_beat_your_score---beat your score：打破自己记录
+
+track_complete-------track complete：游戏胜利
+
+tryagain_button------try again：再来一次
+
+turbulence_warning---turbulence：狂风暴雨
+
+

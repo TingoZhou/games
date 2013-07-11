@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="apple-mobile-web-app-capable" content="no" />
+		<meta name="full-screen" content="yes">
+    	<meta name="screen-orientation" content="portrait"/>
+		<meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;">
+		<title>
+			巧解绳结 &ndash; UC游戏中心
+		</title>
+		<style type="text/css">
+			* {
+				margin: 0px;
+				padding: 0px;
+				-webkit-tap-highlight-color: transparent;
+				-webkit-user-select: none;
+			}
+			body {
+				font-family: "Georgia";
+				text-align: center;
+				background-color: #412d2c;
+				min-height: 417px;
+			}
+			h1, h2, h2 a {
+				display: block;
+				font-style: italic;
+				text-decoration: none;
+				text-shadow: 0px 1px 3px rgba(0,0,0,1);
+				color: white;
+			}
+			#menu {
+				margin: auto;
+				width: 320px;
+			}
+			#menu h3 {
+				text-align: center;
+				margin: 14px 0px 6px;
+				font-size: 32px;
+				font-style: italic;
+				text-decoration: none;
+				text-shadow: 0px 1px 3px rgba(0,0,0,1);
+				color: white;
+			}
+			#menu div {
+				display: inline-block;
+				width: 50px;
+				text-align: center;
+				font-size: 30px;
+				padding: 5px 0px 8px;
+				margin: 3px 3px;
+				background: rgba(180,180,180,0.5);
+				background: rgba(50,50,50,0.5);
+				border: 2px solid rgba(0,0,0,0.3);
+				border-radius: 5px;
+				color: #fff;
+				-webkit-background-clip: padding-box;
+			}
+			#menuBtn {
+				text-decoration: none;
+				position: absolute;
+				top: 0px;
+				right: 0px;
+				padding: 6px 8px;
+				color: white;
+				font-size: 19px;
+				font-weight: bold;
+				text-shadow: 0px 1px 3px rgba(0,0,0,1);
+			}
+			@media screen and (min-device-width: 640px) {
+				body {
+					text-align: center;
+					background-color: #412d2c;
+				}
+				h1, h2, h2 a {
+					display: block;
+					font-style: italic;
+					text-decoration: none;
+					text-shadow: 0px 1px 3px rgba(0,0,0,1);
+					color: white;
+				}
+				h1 {
+					cursor: default;
+					font-size: 34px;
+				}
+				h2 {
+					cursor: pointer;
+					font-size: 21px;
+					position: fixed;
+					bottom: -6px;
+					right: 14px;
+				}
+				#menuBtn {
+					font-size: 28px;
+				}
+				canvas {
+					background-color: #201615;
+					
+					border: 1px solid rgba(0,0,0,0.1);
+					-moz-border-radius: 2px;
+					border-radius: 2px;
+					
+					-webkit-box-shadow: 0px 0px 2px rgba(0,0,0,0.4), 0px 1px 1px rgba(255,255,255,0.1);
+					-moz-box-shadow: 	0px 0px 2px rgba(0,0,0,0.4), 0px 1px 1px rgba(255,255,255,0.1);
+					box-shadow:		    0px 0px 2px rgba(0,0,0,0.4), 0px 1px 1px rgba(255,255,255,0.1);
+				}
+			}
+		</style>
+		<script type="text/javascript">
+			window.scrollTo(0, 1);
+			var gameW = 320;
+			var gameH = 417;
+			var menu;
+			var menuItems;
+			var canvas;
+			var context;
+			var cursorX;
+			var cursorY;
+			
+			var levels = [
+			 [
+			  [[94,96],[263,72],[40,330],[273,343]],
+			  [[0,1],[0,2],[0,3],[1,2],[1,3],[2,3]]
+			 ],
+			 [
+			  [[173,86],[240,305],[63,223],[254,111],[143,314]],
+			  [[0,1],[0,2],[0,3],[0,4],[1,3],[2,3],[3,4]]
+			 ],
+			 [
+			  [[168,60],[173,316],[233,266],[215,143],[105,317],[58,137]],
+			  [[0,3],[0,4],[1,3],[1,5],[2,3],[2,4],[2,5]]
+			 ],
+			 [
+			  [[127,71],[213,155],[152,317],[224,237],[70,272],[65,193]],
+			  [[0,2],[0,5],[1,4],[1,5],[3,4],[3,5]]
+			 ],
+			 [
+			  [[247,296],[95,278],[163,71],[58,148],[278,151],[171,332]],
+			  [[0,2],[1,2],[1,3],[1,4],[2,3],[2,4],[2,5],[3,4],[4,5]]
+			 ],
+			 [
+			  [[38,300],[123,361],[173,53],[258,321],[284,151],[72,111]],
+			  [[0,2],[0,4],[0,5],[1,2],[1,4],[1,5],[2,4],[3,5]]
+			 ],
+			 [
+			  [[46,125],[207,370],[145,201],[255,213],[238,161],[78,329]],
+			  [[0,1],[0,2],[0,4],[0,5],[1,3],[1,5],[2,3],[4,5]]
+			 ],
+			 [
+			  [[45,140],[130,363],[41,309],[174,92],[250,132],[285,315]],
+			  [[0,2],[0,4],[0,5],[1,3],[1,4],[1,5],[2,3],[2,5],[4,5]]
+			 ],
+			 [
+			  [[139,335],[284,193],[80,273],[210,80],[93,134],[283,314]],
+			  [[0,1],[0,3],[1,3],[1,4],[2,3],[2,4],[3,4],[3,5],[4,5]]
+			 ],
+			 [
+			  [[258,329],[202,73],[67,293],[273,136],[173,360],[60,107]],
+			  [[0,1],[0,2],[0,3],[1,2],[1,4],[1,5],[2,3],[2,4],[2,5],[3,5],[4,5]]
+			 ],
+			 [
+			  [[48,341],[240,136],[203,345],[273,290],[123,96],[29,138]],
+			  [[0,1],[0,2],[0,3],[0,4],[0,5],[1,2],[1,5],[2,3],[2,4],[2,5],[3,4]]
+			 ],
+			 [
+			  [[149,212],[77,232],[121,138],[225,220],[266,100],[210,337],[142,329],[274,319]],
+			  [[0,1],[0,6],[1,3],[1,4],[1,6],[1,7],[2,3],[3,4],[3,5],[3,6]]
+			 ],
+			 [
+			  [[264,246],[77,97],[65,304],[175,344],[202,137],[263,117]],
+			  [[0,1],[0,2],[0,3],[0,4],[1,2],[1,3],[1,5],[3,5],[4,5]]
+			 ],
+			 [
+			  [[103,335],[184,336],[239,253],[35,262],[187,141],[69,157]],
+			  [[0,1],[0,2],[0,5],[1,4],[1,5],[2,3],[2,4],[2,5],[3,4],[4,5]]
+			 ],
+			 [
+			  [[71,109],[266,286],[66,217],[117,313],[206,346],[246,88],[274,192],[180,180]],
+			  [[0,1],[0,2],[0,4],[0,6],[0,7],[1,3],[2,3],[2,4],[2,5],[2,6],[2,7],[3,5],[3,6],[5,7]]
+			 ],
+			 [
+			  [[154,255],[186,191],[85,279],[49,167],[198,93],[264,178],[108,111],[251,298]],
+			  [[0,5],[0,6],[1,2],[1,4],[1,7],[2,3],[2,4],[2,6],[2,7],[3,6],[3,7],[4,6],[4,7],[5,6]]
+			 ],
+			 [
+			  [[218,291],[250,221],[151,358],[48,344],[76,232],[47,80],[270,129],[175,119]],
+			  [[0,3],[0,7],[1,5],[1,7],[2,7],[3,5],[3,6],[3,7],[4,5],[4,6],[5,7]]
+			 ],
+			 [
+			  [[33,204],[252,91],[250,191],[71,353],[227,246],[54,272],[67,142],[193,316]],
+			  [[0,1],[0,2],[1,2],[1,3],[1,5],[1,6],[2,6],[3,4],[3,5],[4,6],[5,6],[5,7],[6,7]]
+			 ],
+			 [
+			  [[143,338],[146,75],[98,189],[285,195],[257,303],[278,100],[66,268],[44,129]],
+			  [[0,2],[0,3],[0,6],[1,3],[2,3],[2,4],[2,7],[3,4],[3,6],[5,6],[5,7]]
+			 ],
+			 [
+			  [[101,70],[273,225],[52,159],[133,339],[245,334],[38,279],[191,248],[190,79]],
+			  [[0,1],[0,3],[0,6],[1,2],[1,3],[1,4],[1,7],[2,3],[2,4],[3,5],[3,7],[5,7],[6,7]]
+			 ],
+			 [
+			  [[169,226],[74,154],[51,306],[213,325],[267,174],[39,212],[192,192],[121,377],[131,90],[247,238]],
+			  [[0,2],[1,2],[1,6],[2,3],[2,9],[3,5],[4,6],[4,7],[5,9],[6,9],[7,8]]
+			 ],
+			 [
+			  [[55,149],[189,316],[239,188],[300,213],[276,285],[217,58],[114,294]],
+			  [[0,1],[0,2],[0,6],[1,2],[1,3],[1,5],[2,5],[2,6],[3,4],[3,5],[4,6],[5,6]]
+			 ],
+			 [
+			  [[262,193],[84,113],[194,82],[77,280],[230,288],[40,183],[158,346],[163,218]],
+			  [[0,5],[0,6],[0,7],[1,3],[1,4],[1,5],[1,6],[1,7],[2,3],[2,4],[2,6],[3,4],[3,6],[3,7],[5,6],[5,7]]
+			 ],
+			 [
+			  [[287,190],[131,201],[255,289],[60,194],[163,74],[246,87],[66,281],[184,312]],
+			  [[0,1],[0,2],[0,4],[0,7],[1,4],[2,3],[2,5],[2,7],[3,4],[3,7],[4,5],[4,6],[4,7],[6,7]]
+			 ],
+			 [
+			  [[228,100],[259,147],[276,307],[173,321],[61,161],[55,237],[126,81],[118,134]],
+			  [[0,2],[0,5],[0,6],[1,5],[1,6],[2,4],[2,5],[2,6],[2,7],[3,5],[3,7],[4,6],[4,7]]
+			 ],
+			 [
+			  [[104,334],[266,263],[262,132],[92,102],[170,287],[225,336],[158,52],[55,214]],
+			  [[0,3],[0,5],[0,6],[0,7],[1,2],[1,5],[1,6],[1,7],[2,3],[2,4],[3,4],[4,7],[5,6]]
+			 ],
+			 [
+			  [[291,165],[158,341],[53,219],[159,216],[220,48],[80,124],[188,121],[272,325]],
+			  [[0,1],[0,5],[1,5],[1,7],[2,3],[2,6],[2,7],[3,6],[3,7],[4,5],[4,6],[4,7],[5,6],[6,7]]
+			 ],
+			 [
+			  [[203,287],[258,151],[65,305],[256,262],[90,91],[178,86],[38,214],[129,316]],
+			  [[0,1],[0,6],[0,7],[1,2],[1,3],[1,4],[1,5],[1,6],[1,7],[2,4],[2,5],[3,4],[4,6],[6,7]]
+			 ],
+			 [
+			  [[209,182],[151,299],[176,56],[50,169],[98,106],[109,168],[284,290],[279,116]],
+			  [[0,2],[0,7],[1,3],[1,5],[1,6],[2,4],[2,5],[2,6],[3,5],[3,6],[4,5],[4,6],[5,6],[5,7],[6,7]]
+			 ],
+			 [
+			  [[136,186],[243,111],[55,302],[62,106],[188,317],[132,89],[234,218],[28,189]],
+			  [[0,1],[0,2],[0,3],[0,4],[1,2],[1,3],[1,5],[1,6],[1,7],[2,5],[2,6],[3,4],[3,5],[4,5],[5,6],[5,7],[6,7]]
+			 ]
+			];
+			
+			var saveFile = localStorage.getItem("lazorsSave2");
+			if(!saveFile) {
+				saveFile = "";
+				for(i=0;i<levels.length;i++) {
+					saveFile+="0";
+				}
+				localStorage.setItem("lazorsSave2", saveFile);
+			}
+			
+			var levelNum = 1;
+			if(window.location.hash) {
+				levelNum = parseInt(window.location.hash.replace("#", ""));
+				if(!levelNum) {
+					levelNum = 1;
+				}
+			}
+			var level = levels[levelNum-1];
+			
+			/*random level gen
+			var level = [[],[]];
+			var k = Math.random()*0+7;
+			for(i=0; i<k; i++) {
+				level[0].push(
+					[
+						Math.floor(Math.random()*(gameW-80)+40),
+						Math.floor(Math.random()*(gameH-80)+40)
+					]
+				);
+			}
+			for(i=0; i<level[0].length; i++) {
+				for(j=i; j<level[0].length; j++) {
+					if(j!==i && Math.random()<0.6) {
+						level[1].push([i,j])
+					}
+				}
+			}
+			/*random level gen no more*/
+			
+			var field;
+			var collisions = [
+				[0, 0, 0, 0],
+				[false, false, false, false, false]
+			];
+			var selectedCircle;
+			
+			var s;
+			
+			
+			function setCharAt(str,index,chr) {
+				if(index > str.length-1) return str;
+				return str.substr(0,index) + chr + str.substr(index+1);
+			}
+			function init() {				
+				/*create menu*/
+				menu = document.getElementById("menu");
+				menuItems = [];
+				menuTitle = document.createElement("h1");
+				menuTitle.textContent = "巧解绳结";
+				menuHeader = document.createElement("h3");
+				menuHeader.textContent = "选择关卡";
+				menu.appendChild(menuTitle);
+				menu.appendChild(menuHeader);
+				for(i=0; i<levels.length; i++) {
+					menuItem = document.createElement("div");
+					menuItem.unlocked = false;
+					if(saveFile.charAt(i)=="1"){
+						menuItem.style.backgroundColor = "rgba(73,255,63,0.35)";
+						menuItem.unlocked = true;
+					} else if((saveFile.charAt(i+1)=="1" && ((i-(Math.floor(i/5)*5)) %5)!==4) || 
+							  (saveFile.charAt(i-1)=="1" && ((i-(Math.floor(i/5)*5)) %5)!==0) ||
+							  saveFile.charAt(i-5)=="1" ||
+							  saveFile.charAt(i+5)=="1" ||
+							  i==0) {
+						menuItem.style.backgroundColor = "rgba(180,180,180,0.5)";
+						menuItem.unlocked = true;
+					}
+					menuItem.innerHTML += (i+1);
+					menuItem.mID = i;
+					menuItem.onmouseup = function() {
+						if(this.unlocked) {
+							hideMenu();
+							levelNum = this.mID+1;
+							startLevel();
+						}
+					};
+					menuItems.push(menuItem);
+					menu.appendChild(menuItem);
+				}
+				document.body.style.minHeight = document.body.scrollHeight + "px";
+				/*menu created*/
+					
+				cursorX = 0;
+				cursorY = 0;
+				if(!canvas) {
+					canvas = document.createElement("canvas");
+					context = canvas.getContext("2d");
+					canvas.width = gameW;
+					canvas.height = gameH;
+					document.body.appendChild(canvas);
+				} else {
+					context.clearRect(0,0,gameW,gameH);
+				}
+				if(checkForTouch()) {
+					document.body.addEventListener('touchmove',  touchMove,  false);
+					document.body.addEventListener('touchstart', touchStart, false);
+					document.body.addEventListener('touchend',   touchEnd,   false);
+				} else {
+					document.body.addEventListener('mousemove',  mouseMove,  false);
+					document.body.addEventListener('mousedown',  mouseDown,  false);
+					document.body.addEventListener('mouseup',    mouseUp,    false);
+					//document.body.addEventListener('keydown',    keyDown,    false);
+				}
+				scroller = {};
+				scroller.i = 3;
+				scroller.timer = setInterval(autoScroll, 100);
+				
+				field = level[0];
+				
+				if(window.location.hash) {
+					hideMenu();
+					startLevel();
+				} else {
+					showMenu();
+				}
+				collisionMagic();
+				draw();
+			}
+			function moveCircle() {
+				field[selectedCircle][0] = cursorX;
+				field[selectedCircle][1] = cursorY;
+				draw();
+			}
+			function selectCircle() {
+				level = levels[levelNum-1];
+				selectedCircle = undefined;
+				var x;
+				var y;
+				var xdis;
+				var ydis;
+				var dis;
+				var minDis = 100*100;
+				for(var i=0; i<field.length; i++) {
+					x = field[i][0];
+					y = field[i][1];
+					xdis = x-cursorX;
+					ydis = y-cursorY;
+					dis = xdis*xdis + ydis*ydis;
+					if(dis<minDis) {
+						minDis = dis;
+						selectedCircle = i;
+					}
+				}
+			}
+			function startLevel() {
+				window.scrollTo(0, 1);
+				level = levels[levelNum-1];
+				field = [];
+				for(i=0; i<level[0].length; i++) {
+					field.push([level[0][i][0],level[0][i][1]]);
+				}
+				collisionMagic();
+				draw();
+				selectedCircle=undefined;
+				window.location.hash = levelNum;
+			}
+			function showMenu() {
+				window.location.hash = "";
+				menu.style.display = "block";
+				document.getElementById("menuBtn").style.display = "none";
+				canvas.style.display = "none";
+			}
+			function hideMenu() {
+				menu.style.display = "none";
+				document.getElementById("menuBtn").style.display = "inline";
+				canvas.style.display = "inline-block";
+			}
+			function winLevel() {
+				saveFile = setCharAt(saveFile, levelNum-1, "1");
+				localStorage.setItem("lazorsSave2", saveFile);
+				for(i=0; i<levels.length; i++) {
+					menuItem = menuItems[i];
+					if(saveFile.charAt(i)=="1"){
+						menuItem.style.backgroundColor = "rgba(73,255,63,0.35)";
+					} else if((saveFile.charAt(i+1)=="1" && ((i-(Math.floor(i/5)*5)) %5)!==4) || 
+							  (saveFile.charAt(i-1)=="1" && ((i-(Math.floor(i/5)*5)) %5)!==0) ||
+							  saveFile.charAt(i-5)=="1" ||
+							  saveFile.charAt(i+5)=="1" ||
+							  i==0) {
+						menuItem.style.backgroundColor = "rgba(180,180,180,0.5)";
+						menuItem.unlocked = true;
+					}
+				}
+				var nowYouWait = setTimeout(showMenu, 750);
+			}
+			function collisionMagic() {
+				collisions = [
+					[],
+					[]
+				];
+				for(i=0; i<field.length; i++) {
+					collisions[0].push(0);
+				}
+				for(i=0; i<level[1].length; i++) {
+					collisions[1].push(0);
+				}
+				B = false;
+				for(var i=0; i<level[1].length; i++) {
+					for(var j=i; j<level[1].length; j++) {
+						if(i!==j) {
+							var b = checkCollision(level[1][i],level[1][j]);
+							if(b) {
+								B = true;
+								collisions[0][level[1][i][0]]+=b;
+								collisions[0][level[1][j][0]]+=b;
+								collisions[0][level[1][i][1]]+=b;
+								collisions[0][level[1][j][1]]+=b;
+								collisions[1][i] += b;
+								collisions[1][j] += b;
+							}
+						}
+					}
+				}
+				if(!B) {
+					winLevel();
+				}
+			}
+			function checkCollision(L1, L2) {
+				var v1 = {
+					p0: {x: field[L1[0]][0], y: field[L1[0]][1]},
+					p1: {x: field[L1[1]][0], y: field[L1[1]][1]},
+				};
+				v1.vx = v1.p0.x-v1.p1.x;
+				v1.vy = v1.p0.y-v1.p1.y;
+				var v2 = {
+					p0: {x: field[L2[0]][0], y: field[L2[0]][1]},
+					p1: {x: field[L2[1]][0], y: field[L2[1]][1]}
+				};
+				v2.vx = v2.p0.x-v2.p1.x;
+				v2.vy = v2.p0.y-v2.p1.y;
+				
+				
+				var tV1 = {
+					vx:v1.p0.x-v2.p0.x,
+					vy:v1.p0.y-v2.p0.y
+				};
+				var tV2 = {
+					vx: v2.p0.x-v1.p0.x,
+					vy: v2.p0.y-v1.p0.y
+				}
+				var t1 = perP(tV1, v1)/perP(v2, v1);
+				var t2 = perP(tV2, v2)/perP(v1, v2);
+				
+				return(t1>-1 && t1<0 && t2>-1 && t2<0);
+			}
+			function perP(va, vb) {
+				return va.vx*vb.vy - va.vy*vb.vx;
+			}
+			function clear() {
+				//canvas.width = canvas.width; //prefered but buggy in desktop safari
+				context.clearRect(0,0,gameW,gameH);
+			}
+			function draw() {
+				clear();
+				var x;
+				var y;
+				var c0;
+				var c1;
+				/*draw lines*/
+				context.lineWidth = 2;
+				for(var i=0; i<level[1].length; i++) {
+					c0 = field[level[1][i][0]];
+					c1 = field[level[1][i][1]];
+					if(collisions[1][i]>1) {
+						context.strokeStyle = "rgb(185,24,14)";
+					} else if(collisions[1][i]==1) {
+						context.strokeStyle = "rgb(235,170,34)";
+					} else {
+						context.strokeStyle = "rgb(7,195,13)";
+					}
+					context.beginPath();
+					context.moveTo(c0[0], c0[1]);
+					context.lineTo(c1[0], c1[1]);
+					context.closePath();
+					context.stroke();
+				}
+				
+				/*draw circles*/
+				for(var i=0; i<field.length; i++) {
+					x = field[i][0];
+					y = field[i][1];
+					context.fillStyle = "rgb(100,100,100)";
+					drawCirclePath(17,x,y);
+					context.fill();
+					if(collisions[0][i]>1) {
+						context.fillStyle = "rgb(185,24,14)";
+					} else if(collisions[0][i]==1) {
+						context.fillStyle = "rgb(235,170,34)";
+					} else {
+						context.fillStyle = "rgb(7,195,13)";
+					}
+					drawCirclePath(8,x,y);
+					context.fill();
+				}
+				
+				/*draw player*/
+				/*context.fillStyle = "rgb(235,170,34)";
+				drawCirclePath(player.r,player.x,player.y);
+				context.fill();
+				
+				context.strokeStyle = "rgba(255,255,255,0.2)";
+				context.shadowOffsetY = 0;
+				drawCirclePath(player.r-.5,player.x,player.y);
+				context.stroke();*/
+			}
+			function drawCirclePath(R,X,Y) {
+				context.beginPath();
+				context.arc(X,Y,R,0, Math.PI*2, true); 
+				context.closePath();
+			}
+			
+			function checkForTouch() {		
+				detective = document.createElement("div");
+			    detective.setAttribute("ontouchmove", "return;");
+			    return typeof detective.ontouchmove == "function" ? true : false;
+			}
+			function updateCursorPos(touch) {
+				cursorX = touch.pageX-canvas.offsetLeft;
+				cursorY = touch.pageY-canvas.offsetTop;
+				if(cursorX>gameW) {
+					cursorX = gameW;
+				} else if(cursorX<0) {
+					cursorX = 0;
+				}
+				if(cursorY>gameH) {
+					cursorY = gameH;
+				} else if(cursorY<0) {
+					cursorY = 0;
+				}
+			}
+			function touchStart(event) {
+				updateCursorPos(event.touches[0]);
+				selectCircle();
+				moveCircle();
+				if(menu.style.display=="none") {
+					window.scrollTo(0, 1);
+					if(cursorY>40 || cursorX<230) {
+						event.preventDefault();
+					}
+				}
+			}
+			function touchMove(event) {
+				updateCursorPos(event.touches[0]);
+				moveCircle();
+			}
+			function touchEnd(event) {
+				if(menu.style.display!=="block") {
+					selectedCircle = undefined;
+					collisionMagic();
+					draw();
+				}
+			}
+			function mouseDown(event) {
+				updateCursorPos(event);
+				selectCircle();
+				moveCircle();
+			}
+			function mouseUp(event) {
+				selectedCircle = undefined;
+				collisionMagic();
+				draw();
+			}
+			function mouseMove(event) {
+				updateCursorPos(event);
+				moveCircle();
+			}
+			function keyDown() {
+				s = "[";
+				for(i=0; i<level[0].length; i++) {
+					s+="[";
+					for(j=0; j<level[0][i].length; j++) {
+						s += level[0][i][j];
+						if(j<level[0][i].length-1) {
+							s += ",";
+						}
+					}
+					s += "]";
+					if(i<level[0].length-1) {
+						s += ",";
+					}
+				}
+				s+="],\n["
+				for(i=0; i<level[1].length; i++) {
+					s+="[";
+					for(j=0; j<level[1][i].length; j++) {
+						s += level[1][i][j];
+						if(j<level[1][i].length-1) {
+							s += ",";
+						}
+					}
+					s += "]";
+					if(i<level[1].length-1) {
+						s += ",";
+					}
+				}
+				s+="]";
+				alert(s);
+			}
+			function orentationChanged() {
+				if(window.innerHeight<window.innerWidth) {
+					alert("Please rotate your device to portrait mode.");
+					orentationChanged();
+				}
+			}
+			function autoScroll() {
+				window.scrollTo(0, 1);
+				scroller.i--;
+				if(scroller.i<0) {
+					clearInterval(scroller.timer);
+					scroller.timer = null;
+				}
+			}
+		</script>
+	</head>
+	<body onload="init()" onorientationchange="orentationChanged()">
+		<a id="menuBtn" href="javascript: showMenu();">目录</a>
+		<div id="menu">
+		</div>
+	</body>
+</html>

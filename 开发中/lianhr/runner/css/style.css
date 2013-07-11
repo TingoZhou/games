@@ -1,0 +1,54 @@
+html, body
+{
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+    font-size: 12px;
+    color: white;
+    background: black;
+    -webkit-text-size-adjust: none; /* important, or your text resizes randomly on rotation! */
+    -webkit-tap-highlight-color: transparent;
+}
+
+#game_canvas
+{
+    z-index: 1;
+    overflow: hidden;
+    image-rendering: optimizeSpeed;
+    -webkit-tap-highlight-color: transparent;
+    -moz-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -webkit-transform: translateZ(0);
+    -ms-touch-action: none;
+}
+
+canvas
+{
+    z-index: 1;
+    overflow: hidden;
+    image-rendering: optimizeSpeed;
+    -webkit-tap-highlight-color: transparent;
+    -moz-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -webkit-transform: translateZ(0);
+}
+
+
+#wrong_orientation
+{
+    background: black;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+#wrong_orientation img
+{
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+}

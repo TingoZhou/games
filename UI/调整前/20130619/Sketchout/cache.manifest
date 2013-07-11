@@ -1,0 +1,10 @@
+CACHE MANIFEST
+#version 6
+
+NETWORK:
+*
+
+CACHE:
+./js/util.js
+./css/main.css
+./css/reset.css

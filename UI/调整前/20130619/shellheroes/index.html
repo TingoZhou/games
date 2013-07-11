@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta id="screenOri" name="screen-orientation" content="portrait" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<title>Shell Heroes</title>
+<!--Include required scripts-->
+<link href="css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/game/lib/Easel.js"></script>
+<script type="text/javascript" src="js/game/lib/Tween.js"></script>
+<script type="text/javascript" src="js/game/lib/Ease.js"></script>
+<script type="text/javascript" src="js/game/lib/Sound.js"></script>
+<!-- include SM2 library -->
+<script type="text/javascript" src="js/game/lib/sm2/script/soundmanager2-nodebug-jsmin.js"></script>
+
+<script type="text/javascript" src="js/game/Config.js"></script>
+<script type="text/javascript" src="js/game/lib/functions.js"></script>
+<script type="text/javascript" src="js/game/Game.js"></script>
+<script type="text/javascript" src="js/game/lib/TexturePackerUtils.js"></script>
+<script type="text/javascript">
+function init(){
+    setTimeout(function() {
+        soundManager.setup({
+            url: "js/game/lib/sm2/swf/",
+            flashVersion: 9,
+            preferFlash: !0,
+            useFlashBlock: !1,
+            onready: function() {
+                Game.init(document.getElementById('canvas'));
+            }
+        })
+    },
+    10);
+}
+</script>
+</head>
+<body onload="init()">
+<div id="container">
+
+<canvas id="canvas" style="margin: 0 auto;" id="canvas" width="650" height="550">
+	你的浏览器暂不支持Canvas，请下载最新浏览器
+</canvas>
+</div>
+</body>
+</html>
