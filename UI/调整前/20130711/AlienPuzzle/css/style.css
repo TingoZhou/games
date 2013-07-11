@@ -1,0 +1,31 @@
+html,body,div,ul,li,spam,a
+{
+	margin:0px;
+	padding:0px;
+}
+body
+{
+	text-align: center;
+	background-color: #fff;
+	font-family:"Segoe UI";
+}
+#loading
+{
+	position:absolute;
+	top:300px;
+	left:0px;
+	width:100%;
+}
+#loading span
+{
+	font-size:20px;
+}
+#owner
+{
+	margin-top:15px;
+}
+#owner a
+{
+	text-decoration:none;
+	color:#2CA2C7;
+}
