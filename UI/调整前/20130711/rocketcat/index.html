@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Rocket Cat Adventures</title>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="title" content="Rocket Cat Adventures">
+	    <meta name="full-screen" content="yes">
+	    <meta name="screen-orientation" content="landscape"/>
+    	<link rel="shortcut icon" href="favicon.ico">
+		<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+		<!-- <link rel="stylesheet" href="css/style.css" type="text/css" media="screen"> -->
+		<link rel="stylesheet" href="css/min.css" type="text/css" media="screen">
+
+		<meta name="viewport"/>
+		<!--
+		<script type="text/javascript" src="js/viewporter.js"></script>
+		<script type="text/javascript" src="js/PxLoader.js"></script>
+		<script type="text/javascript" src="js/PxLoaderImage.js"></script>
+		<script type="text/javascript" src="js/sylvester.js"></script>
+		<script type="text/javascript" src="js/caat-min.js"></script>
+		<script type="text/javascript" src="js/tge-min.js"></script>
+		<script type="text/javascript" src="js/rocketcat-min.js"></script>
+		-->
+
+		<script type="text/javascript" src="js/min.js"></script>
+
+		<!-- TreSensa Game Engine -->
+		<script type="text/javascript">
+			function initializeTGE() {
+				var _myGame = new RocketCatGame();
+				if (_myGame.IsPlatformAcceptable()) {
+					if (_myGame.mDeviceInfo.OSOrDevices == "Android") {
+						document.getElementById('wrong_orientation').style.paddingTop = '600px';
+					}
+					_myGame.Launch("game_canvas", "wrong_orientation");
+				} else {
+					// Handle rejected platform as desired...
+				}
+			}
+
+
+			window.addEventListener ? window.addEventListener("load", initializeTGE, false) : window.attachEvent && window.attachEvent("onload", initializeTGE);
+
+		</script>
+
+	</head>
+
+	<body>
+
+		<!--This tag must be placed between the <body> and </body> tags, as close as possible to the opening tag. Creation Date: 06/15/2012 -->
+		<script type="text/javascript">
+			var axel = Math.random() + "";
+			var a = axel * 10000000000000;
+			document.write('<iframe src="https://fls.doubleclick.net/activityi;src=1384245;type=progr393;cat=rocke181;ord=1;num=' + a + '?" width="1" height="1" frameborder="0" style="display:none"></iframe>');
+		</script>
+		<noscript>
+			<iframe src="https://fls.doubleclick.net/activityi;src=1384245;type=progr393;cat=rocke181;ord=1;num=1?" width="1" height="1" frameborder="0" style="display:none"></iframe>
+		</noscript>
+		<!-- End of DoubleClick Floodlight Tag: Please do not remove -->
+
+		<div id="wrong_orientation" style="display: none; text-align: center; padding-top:300px;">
+			<div style="height: 30px"></div>
+			<img src="image/reorient_message.png">
+		</div>
+
+		<div id="viewporter" align="center" width="100%">
+			<div id="game_canvas" style="position:relative; width:960px; height:540px; top:0px; text-align: center; vertical-align: middle;"></div>
+		</div>
+
+	</body>
+
+</html>
