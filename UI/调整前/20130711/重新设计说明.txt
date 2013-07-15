@@ -1,0 +1,5 @@
+intro.png 图片： 该图片用于实现 AlienPuzzle 游戏加载资源过程中的过场动画，可运行 AlienPuzzle/index.html 看效果。
+
+1. 中间一张图下面的 "Alien Puzzle" 换成 "外星记忆"
+2. 右边一张图 "loading" 改为 "游戏加载中"
+3. 左边一张图改为与中间一张图相同，文字同样换成 "外星记忆"
